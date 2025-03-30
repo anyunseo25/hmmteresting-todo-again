@@ -8,6 +8,7 @@ function Todo() {
     
     const onChange = (event) => {
         setTodos(event.target.value);
+        console.log("hello, world!");
           };
 
       const onSubmit = (event) => {
