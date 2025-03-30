@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube Clone</title>
+  <link href="dist/styles.css" rel="stylesheet" />
+</head>
+<body class="bg-amber-200">
+    <!-- Header Section -->
+    <header class="bg-amber-200 shadow-amber-300">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/YouTube_icon_%282013-2017%29.png/500px-YouTube_icon_%282013-2017%29.png" alt="Logo" class="h-8" />
+          <input type="text" placeholder="Search" class="px-4 py-2 w-96 border border-gray-300 rounded-lg" />
+        </div>
+        <div class="flex items-center space-x-4">
+          <button class="text-gray-700 button">Sign In</button>
+          <button class="bg-red-500 text-white px-4 py-2 rounded-lg">Upload</button>
+        </div>
+      </div>
+    </header>
+  
+    <!-- Main Content Section -->
+    <main class="flex p-4">
+      <!-- Video Player -->
+      <section class="w-3/4 mr-4">
+        <div class="bg-black mb-4">
+          <iframe class="w-full h-96" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <h2 class="text-xl font-bold">Video Title</h2>
+        <p class="text-gray-600 mt-2">Video description goes here.</p>
+      </section>
+  
+      <!-- Video List -->
+      <aside class="w-1/4">
+        <ul>
+          <li class="mb-4">
+            <div class="flex items-center space-x-4">
+              <img class="w-24 h-16 object-cover rounded-lg" src="https://via.placeholder.com/300x180" alt="Video Thumbnail" />
+              <div>
+                <h3 class="text-lg font-serif">Video Title 1</h3>
+                <p class="text-xs text-gray-500">Channel Name</p>
+              </div>
+            </div>
+          </li>
+          <li class="mb-4">
+            <div class="flex items-center space-x-4">
+              <img class="w-24 h-16 object-cover rounded-lg" src="https://via.placeholder.com/300x180" alt="Video Thumbnail" />
+              <div>
+                <h3 class="text-sm font-semibold">Video Title 2</h3>
+                <p class="text-xs text-gray-500">Channel Name</p>
+              </div>
+            </div>
+          </li>
+          <!-- More video items... -->
+        </ul>
+      </aside>
+    </main>
+</body>
+</html>
