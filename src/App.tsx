@@ -1,9 +1,9 @@
-import Form from './todos';
+import Calculator from './task4';
 
 function App() {
   return (
     <div>
-    <Form />
+    <Calculator />
     </div>
   );
 }

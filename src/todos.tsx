@@ -25,8 +25,6 @@ function Todo() {
       <button type="submit" onSubmit={onSubmit} className="bg-amber-300 text-amber-700 right-2"> 할 일 추가 </button>
     </form>    
 
-    <textarea />
-
         <ul className='to-blue-950 text-3xl bg-blue-50'>
             {Lists.map((item) => <li>{item}</li>)}
         </ul>
