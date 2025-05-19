@@ -6,16 +6,16 @@ export const Route = createRootRoute({
     <>
       <div className="flex p-2 flex gap-2 flex w-full">
         <Link to="/" className="[&.active]:font-bold" font-family="SBAggroB">
-          Home
+          일단 이게 홈 화면
         </Link>{' '}
         <Link to="/List" className="[&.active]:font-bold">
-          List
+          이건 따로 리스트 바로 가게 만들어 놓는 거
         </Link>
         <Link to="/index copy 2" className="[&.active]:font-bold">
-          Board
+          얘도 뭔가 있겠지
         </Link>
         <Link to="/index copy" className="[&.active]:font-bold">
-          chingoo
+          얘도 뭔가 할 일이 있겟지....
         </Link>
       </div>
       <hr />

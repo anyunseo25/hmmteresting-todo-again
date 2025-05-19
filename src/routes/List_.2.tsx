@@ -6,5 +6,5 @@ export const Route = createFileRoute('/List_/2')({
 })
 
 function Chuga() {
-  return <div>여기에 뭔 내용을 적적을지 아세요? <Outlet /> </div>
+  return <div>여기에 뭔 내용을 적적을지 아세요? 전 아직 몰라용 <Outlet /> </div>
 }
