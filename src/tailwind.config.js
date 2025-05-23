@@ -1,14 +1,12 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
-    theme: {
-      extend: {
-        fontFamily: {
-          uu: ["SBAggroB", ...https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff],
-
-        }
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      fontFamily: {
+        sbaggro: ['SBAggroB', 'sans-serif'],
       },
     },
-    plugins: [],
-    
-  }
-  
+  },
+  plugins: [],
+};
