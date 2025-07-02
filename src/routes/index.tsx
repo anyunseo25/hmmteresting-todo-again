@@ -1,17 +1,46 @@
 import { createFileRoute } from '@tanstack/react-router'
+import {DispatchWithoutAction, useState} from 'react'
 
 export const Route = createFileRoute('/')({
   component: Index,
 })
 
-function Index() {
-  return (
-    <div className="p-2">
-      <h3>여기에 객체 네 개 정도 박아서 리스트 쫘라락 하는 거
+export default function Index() {
+  
+  const [Input, setInput] = useState('');
+  const [count, setCount] = useState(0);
 
-        상자 네 개로 순위 같은 거 만들어 놓고, 거기 코드 누르면 성립하게
+  const [items, setItems] = useState<string[]>([]);
+  
+    const handleChange = (event) => {
+      setInput(event.target.value);
+      
+    };
+    const handleSubmit = (event) => {
+    event.preventDefault();
+    setItems([...items, Input]);
+    setCount(count + 1);
+    setInput('');
+  };
 
-      </h3>
-    </div>
+type listProps = {  Input: string[]; count:number;
+};
+
+const List : React.FC<listProps> = ({ Input }) => { return (<div>{Input}</div>) }
+
+  
+  
+  return (<form onSubmit={handleSubmit}>
+    <input type="text" value={Input} onChange={handleChange} />
+    <button type="submit" className="bg-[#fff3f3]"> 어쩌고 저쩌고 </button>
+    <br />
+    <br />
+  <div>
+    <List Input={items} count={count} />
+    <br />
+  </div>
+    
+    
+    </form>
   )
-}
+};

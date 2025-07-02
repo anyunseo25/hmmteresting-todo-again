@@ -11,69 +11,13 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as Indexcopy2Import } from './routes/index copy 2'
-import { Route as IndexcopyImport } from './routes/index copy'
-import { Route as ListImport } from './routes/List'
 import { Route as IndexImport } from './routes/index'
-import { Route as IndexImport } from './routes/마이페이지/index'
-import { Route as ChugaImport } from './routes/마이페이지/chuga'
-import { Route as List3Import } from './routes/List_.3'
-import { Route as List2Import } from './routes/List_.2'
-import { Route as List1Import } from './routes/List_.1'
 
 // Create/Update Routes
-
-const Indexcopy2Route = Indexcopy2Import.update({
-  id: '/index copy 2',
-  path: '/index copy 2',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const IndexcopyRoute = IndexcopyImport.update({
-  id: '/index copy',
-  path: '/index copy',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const ListRoute = ListImport.update({
-  id: '/List',
-  path: '/List',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const IndexRoute = IndexImport.update({
-  id: '/마이페이지/',
-  path: '/마이페이지/',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const ChugaRoute = ChugaImport.update({
-  id: '/마이페이지/chuga',
-  path: '/마이페이지/chuga',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const List3Route = List3Import.update({
-  id: '/List_/3',
-  path: '/List/3',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const List2Route = List2Import.update({
-  id: '/List_/2',
-  path: '/List/2',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const List1Route = List1Import.update({
-  id: '/List_/1',
-  path: '/List/1',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -88,62 +32,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/List': {
-      id: '/List'
-      path: '/List'
-      fullPath: '/List'
-      preLoaderRoute: typeof ListImport
-      parentRoute: typeof rootRoute
-    }
-    '/index copy': {
-      id: '/index copy'
-      path: '/index copy'
-      fullPath: '/index copy'
-      preLoaderRoute: typeof IndexcopyImport
-      parentRoute: typeof rootRoute
-    }
-    '/index copy 2': {
-      id: '/index copy 2'
-      path: '/index copy 2'
-      fullPath: '/index copy 2'
-      preLoaderRoute: typeof Indexcopy2Import
-      parentRoute: typeof rootRoute
-    }
-    '/List_/1': {
-      id: '/List_/1'
-      path: '/List/1'
-      fullPath: '/List/1'
-      preLoaderRoute: typeof List1Import
-      parentRoute: typeof rootRoute
-    }
-    '/List_/2': {
-      id: '/List_/2'
-      path: '/List/2'
-      fullPath: '/List/2'
-      preLoaderRoute: typeof List2Import
-      parentRoute: typeof rootRoute
-    }
-    '/List_/3': {
-      id: '/List_/3'
-      path: '/List/3'
-      fullPath: '/List/3'
-      preLoaderRoute: typeof List3Import
-      parentRoute: typeof rootRoute
-    }
-    '/마이페이지/chuga': {
-      id: '/마이페이지/chuga'
-      path: '/마이페이지/chuga'
-      fullPath: '/마이페이지/chuga'
-      preLoaderRoute: typeof ChugaImport
-      parentRoute: typeof rootRoute
-    }
-    '/마이페이지/': {
-      id: '/마이페이지/'
-      path: '/마이페이지'
-      fullPath: '/마이페이지'
-      preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
-    }
   }
 }
 
@@ -151,99 +39,31 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/List': typeof ListRoute
-  '/index copy': typeof IndexcopyRoute
-  '/index copy 2': typeof Indexcopy2Route
-  '/List/1': typeof List1Route
-  '/List/2': typeof List2Route
-  '/List/3': typeof List3Route
-  '/마이페이지/chuga': typeof ChugaRoute
-  '/마이페이지': typeof IndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/List': typeof ListRoute
-  '/index copy': typeof IndexcopyRoute
-  '/index copy 2': typeof Indexcopy2Route
-  '/List/1': typeof List1Route
-  '/List/2': typeof List2Route
-  '/List/3': typeof List3Route
-  '/마이페이지/chuga': typeof ChugaRoute
-  '/마이페이지': typeof IndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/List': typeof ListRoute
-  '/index copy': typeof IndexcopyRoute
-  '/index copy 2': typeof Indexcopy2Route
-  '/List_/1': typeof List1Route
-  '/List_/2': typeof List2Route
-  '/List_/3': typeof List3Route
-  '/마이페이지/chuga': typeof ChugaRoute
-  '/마이페이지/': typeof IndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/List'
-    | '/index copy'
-    | '/index copy 2'
-    | '/List/1'
-    | '/List/2'
-    | '/List/3'
-    | '/마이페이지/chuga'
-    | '/마이페이지'
+  fullPaths: '/'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/List'
-    | '/index copy'
-    | '/index copy 2'
-    | '/List/1'
-    | '/List/2'
-    | '/List/3'
-    | '/마이페이지/chuga'
-    | '/마이페이지'
-  id:
-    | '__root__'
-    | '/'
-    | '/List'
-    | '/index copy'
-    | '/index copy 2'
-    | '/List_/1'
-    | '/List_/2'
-    | '/List_/3'
-    | '/마이페이지/chuga'
-    | '/마이페이지/'
+  to: '/'
+  id: '__root__' | '/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ListRoute: typeof ListRoute
-  IndexcopyRoute: typeof IndexcopyRoute
-  Indexcopy2Route: typeof Indexcopy2Route
-  List1Route: typeof List1Route
-  List2Route: typeof List2Route
-  List3Route: typeof List3Route
-  ChugaRoute: typeof ChugaRoute
-  IndexRoute: typeof IndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  ListRoute: ListRoute,
-  IndexcopyRoute: IndexcopyRoute,
-  Indexcopy2Route: Indexcopy2Route,
-  List1Route: List1Route,
-  List2Route: List2Route,
-  List3Route: List3Route,
-  ChugaRoute: ChugaRoute,
   IndexRoute: IndexRoute,
 }
 
@@ -257,43 +77,11 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/",
-        "/List",
-        "/index copy",
-        "/index copy 2",
-        "/List_/1",
-        "/List_/2",
-        "/List_/3",
-        "/마이페이지/chuga",
-        "/마이페이지/"
+        "/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
-    },
-    "/List": {
-      "filePath": "List.tsx"
-    },
-    "/index copy": {
-      "filePath": "index copy.tsx"
-    },
-    "/index copy 2": {
-      "filePath": "index copy 2.tsx"
-    },
-    "/List_/1": {
-      "filePath": "List_.1.tsx"
-    },
-    "/List_/2": {
-      "filePath": "List_.2.tsx"
-    },
-    "/List_/3": {
-      "filePath": "List_.3.tsx"
-    },
-    "/마이페이지/chuga": {
-      "filePath": "마이페이지/chuga.tsx"
-    },
-    "/마이페이지/": {
-      "filePath": "마이페이지/index.tsx"
     }
   }
 }
