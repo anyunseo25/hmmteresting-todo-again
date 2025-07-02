@@ -8,7 +8,7 @@ export const Route = createFileRoute('/')({
 export default function Index() {
   
   const [Input, setInput] = useState('');
-  const [items, setItems] = useState<string[]>([]);
+  const [items, setItems] = useState<{id : number, name : string; }[]>([]);
   const [id, setId] = useState(0);
   
     const handleChange = (event) => {
@@ -17,16 +17,10 @@ export default function Index() {
     };
     const handleSubmit = (event) => {
     event.preventDefault();
-    setItems([...items, Input]);
-    setId(id);
+    setItems([...items, {id: id, name: Input}]);
     setInput('');
-  };
-  const handleDelete = (event) => {
-    event.preventDefault();
-    setItems([]);
-    setId(0);
-  }
-  
+    setId(id + 1);
+    };
   
   return (<form onSubmit={handleSubmit}>
     <input type="text" value={Input} onChange={handleChange} />
@@ -34,8 +28,13 @@ export default function Index() {
     <br />
     <br />
     <ul>
-      {items.map((Input) =>
-    <li key={id}> {Input} <button onChange={handleDelete} className="bg-[#fff3f3]">삭제</button> </li>)}
+      {items.map((item) =>
+    <li key={item.id}> {item.name} <button className="bg-[#fff3f3]" onClick={() => { setItems(
+                items.filter(a =>
+                  a.id !== item.id
+                )
+              );}
+            }>삭제</button> </li>)}
     </ul>
     <br />
     
