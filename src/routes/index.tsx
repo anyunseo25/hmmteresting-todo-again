@@ -34,7 +34,7 @@ export default function Index() {
                   a.id !== item.id
                 )
               );}
-            }>완료</button> </li>)}
+            }>삭제</button> </li>)}
     </ul>
     <br />
     
