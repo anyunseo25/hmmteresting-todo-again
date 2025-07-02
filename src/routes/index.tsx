@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import {DispatchWithoutAction, useState} from 'react'
+import {useState} from 'react'
 
 export const Route = createFileRoute('/')({
   component: Index,
@@ -8,37 +8,36 @@ export const Route = createFileRoute('/')({
 export default function Index() {
   
   const [Input, setInput] = useState('');
-  const [count, setCount] = useState(0);
-
   const [items, setItems] = useState<string[]>([]);
+  const [id, setId] = useState(0);
   
     const handleChange = (event) => {
-      setInput(event.target.value);
+        setInput(event.target.value);
       
     };
     const handleSubmit = (event) => {
     event.preventDefault();
     setItems([...items, Input]);
-    setCount(count + 1);
+    setId(id);
     setInput('');
   };
-
-type listProps = {  Input: string[]; count:number;
-};
-
-const List : React.FC<listProps> = ({ Input }) => { return (<div>{Input}</div>) }
-
+  const handleDelete = (event) => {
+    event.preventDefault();
+    setItems([]);
+    setId(0);
+  }
   
   
   return (<form onSubmit={handleSubmit}>
     <input type="text" value={Input} onChange={handleChange} />
-    <button type="submit" className="bg-[#fff3f3]"> 어쩌고 저쩌고 </button>
+    <button type="submit" className="bg-[#fff3f3]"> 추가 </button>
     <br />
     <br />
-  <div>
-    <List Input={items} count={count} />
+    <ul>
+      {items.map((Input) =>
+    <li key={id}> {Input} <button onChange={handleDelete} className="bg-[#fff3f3]">삭제</button> </li>)}
+    </ul>
     <br />
-  </div>
     
     
     </form>
