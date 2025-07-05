@@ -10,6 +10,7 @@ export default function Index() {
   
   const [Input, setInput] = useState<string>('');
   const [items, setItems] = useState<{id: string; name : string; isChecked: boolean;}[]>([]);
+
   
     const handleChange = (event) => {
         setInput(event.target.value);
@@ -29,15 +30,16 @@ export default function Index() {
 
 
   
-  return (<form onSubmit={handleSubmit}>
-    <input type="text" value={Input} onChange={handleChange} />
-    <button type="submit" className="bg-[#fff3f3]"> 추가 </button>
+  return (<form onSubmit={handleSubmit} className='bg-[#f3f3f3] h-[100vh]'>
+    <input type="text" value={Input} onChange={handleChange} className="text-[30px] w-[500px] h-[60px]" />
+    <button type="submit" className="absolute bg-[#000000] text-[30px] text-[#ffffff] font-[semibold] left-[520px] top-[31.5px]"> 추가 </button>
     <br />
     <br />
     <ul> 
       {items.map((item) =>
-    <li key={uuid()} className={`font-semibold 
-     ${item.isChecked ? "line-through text-[#444444]" : "text-[#00AAFF]"}`} > {item.name} <button className="bg-[#fff3f3]" onClick={() => handleButton(item.id)}>완료</button> </li>)}
+    <li key={uuid()} className={`text-[20px]
+     ${item.isChecked ? "line-through text-[#777777]" : "font-semibold text-[#000000]"}`} > {item.name}   <button className={`font-semibold text-[20px]
+     ${item.isChecked ? "bg-[#444444] text-[#777777] line-through" : " bg-[#000000] text-[#ffffff]"}`} onClick={() => handleButton(item.id)}>완료</button> </li>)}
     </ul>
     <br />
     
