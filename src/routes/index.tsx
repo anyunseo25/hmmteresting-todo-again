@@ -9,7 +9,7 @@ export const Route = createFileRoute('/')({
 export default function Index() {
   
   const [Input, setInput] = useState<string>('');
-  const [items, setItems] = useState<{id : string; name : string; isChecked: boolean;}[]>([]);
+  const [items, setItems] = useState<{id: string; name : string; isChecked: boolean;}[]>([]);
   
     const handleChange = (event) => {
         setInput(event.target.value);
@@ -21,9 +21,11 @@ export default function Index() {
     setInput('');
     };
 
-    const handleButton = (event) => {
-        event.preventDefault();
-    };
+    const handleButton = (id: string) => {
+          setItems(items => items.map((item => 
+            item.id === id? {...item, isChecked: true} : item
+          )));
+        };
 
 
   
@@ -35,7 +37,7 @@ export default function Index() {
     <ul> 
       {items.map((item) =>
     <li key={uuid()} className={`font-semibold 
-     ${item.isChecked ? "line-through text-[#444444]" : "text-[#00AAFF]"}`} > {item.name} <button className="bg-[#fff3f3]" onClick={handleButton}>완료</button> </li>)}
+     ${item.isChecked ? "line-through text-[#444444]" : "text-[#00AAFF]"}`} > {item.name} <button className="bg-[#fff3f3]" onClick={() => handleButton(item.id)}>완료</button> </li>)}
     </ul>
     <br />
     
