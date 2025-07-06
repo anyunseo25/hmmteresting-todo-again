@@ -37,7 +37,7 @@ export default function Index() {
     <br />
     <ul> 
       {items.map((item) =>
-    <li key={uuid()} className={`text-[20px]
+    <li key={item.id} className={`text-[20px]
      ${item.isChecked ? "line-through text-[#777777]" : "font-semibold text-[#000000]"}`} > {item.name}   <button className={`font-semibold text-[20px]
      ${item.isChecked ? "bg-[#444444] text-[#777777] line-through" : " bg-[#000000] text-[#ffffff]"}`} onClick={() => handleButton(item.id)}>완료</button> </li>)}
     </ul>
