@@ -8,7 +8,7 @@ export const Route = createFileRoute('/calculator')({
 
 export default function Calculator() {
   
-  const [Input, setInput] = useState<number>(0);
+  const [Input, setInput] = useState<number | string>('');
   const [numbers, setNumbers] = useState<{id: string; num: number;}[]>([]);
   
     const handleChange = (event) => {
@@ -17,8 +17,8 @@ export default function Calculator() {
     };
     const handleSubmit = (event) => {
     event.preventDefault();
-    setNumbers(numbers =>  [...numbers, {id: uuid(), num: Input}]);
-    setInput(Number(null));
+    setNumbers(numbers =>  [...numbers, {id: uuid(), num: Input as number}]);
+    setInput('');
     };
 
     const handleplus = (num: number) => {
@@ -45,6 +45,15 @@ export default function Calculator() {
 
   
   return (<form onSubmit={handleSubmit} className='bg-[#f3f3f3] h-[100vh]'>
+    
+    <button className="absolute bg-[#000000] text-[30px] text-[#ffffff] font-[semibold] left-[600px] top-[31.5px]">. - .</button>
+    
+    <button className="absolute bg-[#000000] text-[30px] text-[#ffffff] font-[semibold] left-[680px] top-[31.5px]">. * .</button>
+    
+    <button className="absolute bg-[#000000] text-[30px] text-[#ffffff] font-[semibold] left-[760px] top-[31.5px]">. / .</button>
+
+    <button  className="absolute bg-[#000000] text-[30px] text-[#ffffff] font-[semibold] left-[520px] top-[31.5px]">. + .</button>
+    
     <input type="text" value={Input} onChange={handleChange} className="text-[30px] w-[500px] h-[60px]" />
    {numbers.map((number) => <div key = {number.id}><button onClick={() => {handleplus(number.num)}} className="absolute bg-[#000000] text-[30px] text-[#ffffff] font-[semibold] left-[520px] top-[31.5px]">. + .</button>
     
